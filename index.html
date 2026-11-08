@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali, Vidhi! 🪔</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:#fff5d6;text-align:center;
+ font-family:Georgia,serif;
+ background:radial-gradient(circle at top,#542044,#190b2d 65%,#080516);
+ overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;pointer-events:none;
+ background-image:radial-gradient(#fff 1px,transparent 1px);
+ background-size:45px 45px;opacity:.35}
+main{position:relative;padding:65px 20px 45px;max-width:700px;margin:auto}
+h1{font-size:clamp(38px,9vw,65px);color:#ffd36a;
+ text-shadow:0 0 20px #ff9b24;margin:20px 0}
+h2{color:#ffdc91;font-size:25px}
+p{font-size:18px;line-height:1.8}
+.diya{font-size:75px;filter:drop-shadow(0 0 18px orange);
+ animation:glow 1.5s infinite alternate}
+@keyframes glow{to{filter:drop-shadow(0 0 35px gold)}}
+button{
+ background:linear-gradient(45deg,#ff9b24,#ffe18a);
+ color:#542044;border:0;border-radius:30px;padding:15px 27px;
+ font-size:17px;font-weight:bold;margin:12px;cursor:pointer;
+ box-shadow:0 0 18px #ffae42
+}
+.card{
+ margin:35px auto;padding:25px;border:1px solid #ffcf75;
+ border-radius:20px;background:#ffffff12;max-width:520px;
+ box-shadow:0 0 25px #ff9b2430
+}
+#surprise{display:none;color:#ffe5a7;font-size:21px}
+footer{padding:30px;color:#eacb9a}
+.spark{position:fixed;pointer-events:none;font-size:24px;
+ animation:rise 3s linear forwards}
+@keyframes rise{from{transform:translateY(0);opacity:1}
+ to{transform:translateY(-100vh);opacity:0}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main>
+ <div class="diya">🪔</div>
+ <h1>Happy Diwali!</h1>
+ <h2>Dear Vidhi ✨</h2>
+ <p>
+ May your life shine brighter than a thousand diyas,
+ your days sparkle with happiness, and your heart
+ always be filled with love and peace.
+ </p>
+ <div class="card">
+  <h2>A Little Wish For You 💛</h2>
+  <p>
+   May every dream find its way to you,
+   every challenge turn into an opportunity,
+   and every moment bring a reason to smile.
+  </p>
+  <p>Keep shining, keep smiling, and stay amazing!</p>
+ </div>
+ <button onclick="reveal()">Open Your Surprise 🎁</button>
+ <div class="card" id="surprise">
+  <div style="font-size:55px">💝</div>
+  <h2>For You, Vidhi!</h2>
+  <p>You deserve all the happiness in the world.
+  May this Diwali bring you endless beautiful memories!</p>
+  <p>✨ You are truly special. ✨</p>
+ </div>
+ <button onclick="fireworks()">Celebrate! 🎆</button>
+ <footer>Made with ❤️ just for Vidhi<br>Happy Diwali 🪔</footer>
+</main>
+<script>
+function reveal(){
+ document.getElementById('surprise').style.display='block';
+}
+function fireworks(){
+ for(let i=0;i<35;i++){
+  let s=document.createElement('div');
+  s.className='spark';
+  s.textContent=['✨','🎆','🌟','💛','🎇'][Math.floor(Math.random()*5)];
+  s.style.left=Math.random()*100+'vw';
+  s.style.top=(50+Math.random()*45)+'vh';
+  s.style.animationDuration=(2+Math.random()*2)+'s';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),4000);
+ }
+}
+setInterval(fireworks,5000);
+</script>
+</body>
+</html>
